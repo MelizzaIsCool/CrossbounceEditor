@@ -77,7 +77,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4307522347918848}
   m_Layer: 0
-  m_Name: prefab_Wall
+  m_Name: Obstacle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,10 +301,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingObstacle: 1
-  target: {fileID: 4200803218014006}
+  goingForward: 1
+  currentTarget: {fileID: 0}
   startPoint: {fileID: 4200803218014006}
   endPoint: {fileID: 4660763248962712}
-  obstaceSpeed: 5
+  obstacleSpeed: 5
 --- !u!114 &114562989316036584
 MonoBehaviour:
   m_ObjectHideFlags: 1

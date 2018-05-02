@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEditor;
 
 /*Class ObstacleFoldout makes the variabels in the ObstacleMovement class 
- * visible through a dropdown.
- * Help with OnInspectorGUI() from "softrare" on answers.unity.com from a 
- * question posed by "Ultramyth" about EditorGUILayout.Foldout use, Jan 02, 2014
+ * visible.
+ * Help with OnInspectorGUI() and OnEnabled() from "softrare" on 
+ * answers.unity.com from a question posed by "Ultramyth" on , Jan 02, 2014,
+ * about EditorGUILayout use.
  **/
 
 [CustomEditor(typeof(ObstacleMovement))]
-public class ObstacleFoldout : Editor
+public class ObstacleSerialization : Editor
 {
     private bool showMovement;
     private SerializedObject m_object;
@@ -35,16 +36,13 @@ public class ObstacleFoldout : Editor
 
     public override void OnInspectorGUI()
     {
-        EditorGUILayout.PropertyField(m_staticObject);
-        showMovement = EditorGUILayout.Foldout(showMovement, "Moving Object");        
-        if (showMovement)
-        {
-            EditorGUILayout.PropertyField(m_forwardMovement);
-            EditorGUILayout.PropertyField(m_target);
-            EditorGUILayout.PropertyField(m_startPoint);
-            EditorGUILayout.PropertyField(m_endPoint);
-            EditorGUILayout.PropertyField(m_obstacleSpeed);
-        }
+        m_staticObject.boolValue = EditorGUILayout.Toggle(new GUIContent("Moving Object"), m_staticObject.boolValue);
+        m_forwardMovement.boolValue = EditorGUILayout.Toggle(new GUIContent("Going Forward"), m_forwardMovement.boolValue);
+        EditorGUILayout.PropertyField(m_target);
+        EditorGUILayout.PropertyField(m_startPoint);
+        EditorGUILayout.PropertyField(m_endPoint);
+        m_obstacleSpeed.floatValue = EditorGUILayout.FloatField(new GUIContent("Obstacle Speed"), m_obstacleSpeed.floatValue);
+        m_object.ApplyModifiedProperties();
     }
 
 }

@@ -23,7 +23,7 @@ public class ObstacleEditor : EditorWindow
         if (GUILayout.Button("Create Obstacle", GUILayout.Width(150)))
         {
             //First fetch Guid assets
-            string[] obstacleGuids = AssetDatabase.FindAssets("prefab_Wall");
+            string[] obstacleGuids = AssetDatabase.FindAssets("Obstacle System");
             StringBuilder guiBuilder = new StringBuilder();
 
             foreach (string obstacle in obstacleGuids)
