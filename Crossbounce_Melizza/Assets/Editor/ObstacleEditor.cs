@@ -41,8 +41,8 @@ public class ObstacleEditor : EditorWindow
                 GameObject newWall = Instantiate(wallTemp);
                 newWall.name = wallTemp.name;
                 PhysicsMaterial2D physMat = new PhysicsMaterial2D();
-                newWall.transform.GetChild(0).GetChild(0).GetComponent<Collider2D>().sharedMaterial = physMat;
-                newWall.transform.GetChild(0).GetChild(0).GetComponent<ObstacleMovement>().obstacleSpeed = obstacleSpeed;
+                newWall.transform.GetChild(1).GetComponent<Collider2D>().sharedMaterial = physMat;
+                newWall.transform.GetChild(1).GetComponent<ObstacleMovement>().obstacleSpeed = obstacleSpeed;
             }
         }
 
