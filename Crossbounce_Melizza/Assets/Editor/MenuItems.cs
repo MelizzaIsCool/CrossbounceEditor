@@ -5,7 +5,7 @@ using UnityEditor;
 
 public class MenuItems
 {
-    [MenuItem("Tools/Obstacle Creator")]
+    [MenuItem("Tools/Object Creator")]
     private static void ShowObstacleWindow()
     {
         ObstacleEditor.ShowWindow();

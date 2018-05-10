@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33170443217582268}
   - component: {fileID: 65235272915422386}
   - component: {fileID: 23383031622493314}
-  - component: {fileID: 114325666141124988}
   m_Layer: 0
   m_Name: EndPoint
   m_TagString: Untagged
@@ -45,7 +44,7 @@ GameObject:
   - component: {fileID: 114767748371116416}
   - component: {fileID: 114950562176018800}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +76,6 @@ GameObject:
   - component: {fileID: 33925796286293938}
   - component: {fileID: 65032463774969386}
   - component: {fileID: 23492840372112870}
-  - component: {fileID: 114095553116311634}
   m_Layer: 0
   m_Name: StartPoint
   m_TagString: Untagged
@@ -120,11 +118,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1324409388203696}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.88, y: 2.5, z: 2.9648438}
+  m_LocalPosition: {x: 1.52, y: 2.52, z: 5.9296875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4298593817336046}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -37.226}
 --- !u!4 &4190347201571552
 Transform:
@@ -139,7 +137,7 @@ Transform:
   - {fileID: 4870676636285604}
   - {fileID: 4136708547848174}
   m_Father: {fileID: 4298593817336046}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4298593817336046
 Transform:
@@ -151,8 +149,8 @@ Transform:
   m_LocalPosition: {x: -0.35386506, y: -0.54, z: 0.98828125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4190347201571552}
   - {fileID: 4183375116658704}
+  - {fileID: 4190347201571552}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -175,7 +173,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1019119251869670}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -209,7 +207,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1861133081510072}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -320,18 +318,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114095553116311634
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1861133081510072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cce9322b93930a469977c584be9c5a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myObject: {fileID: 1324409388203696}
 --- !u!114 &114231993828874796
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -344,18 +330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directions: 0
---- !u!114 &114325666141124988
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1019119251869670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cce9322b93930a469977c584be9c5a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myObject: {fileID: 1324409388203696}
 --- !u!114 &114767748371116416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -367,9 +341,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 943a109853149d345b9abe3412ad6ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingObstacle: 1
+  movingObstacle: 0
   goingForward: 1
-  currentTarget: {fileID: 0}
+  currentTarget: {fileID: 4136708547848174}
   startPoint: {fileID: 4870676636285604}
   endPoint: {fileID: 4136708547848174}
   obstacleSpeed: 5

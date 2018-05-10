@@ -61,7 +61,7 @@ public class ImClickable : Editor
                 if (changingValues == 1)
                 {
                     //scale positive in the X                   
-                    t.localScale += new Vector3(0.1f, 0, 0);
+                    t.localScale += new Vector3(0.1f, 0, 0);                                       
                 }
                 if (changingValues == 2)
                 {
@@ -74,6 +74,7 @@ public class ImClickable : Editor
                     t.localPosition += new Vector3(0.1f, 0, 0);
                 }
                 Event.current.Use();
+
             }
 
             //if user presses left arrow

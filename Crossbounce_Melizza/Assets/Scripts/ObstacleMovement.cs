@@ -11,7 +11,9 @@ public class ObstacleMovement : MonoBehaviour
     [Space]
     public bool goingForward = true;
     public Transform currentTarget;
+    [HideInInspector]
     public Transform startPoint;
+    [HideInInspector]
     public Transform endPoint;
     public float obstacleSpeed = 5f;
 
@@ -21,8 +23,8 @@ public class ObstacleMovement : MonoBehaviour
 
     private void Start()
     {
-        //the target will be the endpoint on the games tart
-        currentTarget = endPoint.transform;
+        //the target will be the endpoint on the games start
+        currentTarget = endPoint;
         //turn off the mesh renderer of the end points
         startPoint.gameObject.GetComponent<MeshRenderer>().enabled = false;
         endPoint.gameObject.GetComponent<MeshRenderer>().enabled = false;
@@ -40,11 +42,11 @@ public class ObstacleMovement : MonoBehaviour
                 //the obstacle should move until its center is within a certain distance from the targets center
                 direction = currentTarget.GetComponent<Renderer>().bounds.center - transform.position;
                 transform.Translate(direction.normalized * obstacleSpeed * Time.deltaTime);
-
+                currentTarget = endPoint;
                 if (Vector3.Distance(transform.position, endPoint.GetComponent<Renderer>().bounds.center) <= 0.1f)
                 {
                     goingForward = false;
-                    currentTarget = startPoint.transform;
+                    currentTarget = startPoint;
                 }
             }
             else
@@ -52,11 +54,11 @@ public class ObstacleMovement : MonoBehaviour
                 //Same as up top, just in the opposite direction
                 direction = currentTarget.GetComponent<Renderer>().bounds.center - transform.position;
                 transform.Translate(direction.normalized * obstacleSpeed * Time.deltaTime);
-
-                if (Vector3.Distance(transform.position, startPoint.GetComponent<Renderer>().bounds.center) <= 0.2f)
+                currentTarget = startPoint;
+                if (Vector3.Distance(transform.position, startPoint.GetComponent<Renderer>().bounds.center) <= 0.1f)
                 {
                     goingForward = true;
-                    currentTarget = endPoint.transform;
+                    currentTarget = endPoint;
                 }
             }
         }
