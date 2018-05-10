@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class ObstacleMovement : MonoBehaviour
 {
-    [Header("Uncheck for stationary objects")]
     public bool movingObstacle = true;
-    [Space]
-    [Space]
-    [Space]
     public bool goingForward = true;
     public Transform currentTarget;
-    [HideInInspector]
     public Transform startPoint;
-    [HideInInspector]
     public Transform endPoint;
     public float obstacleSpeed = 5f;
 
-    private Vector3 startPosition;
     private Vector3 direction;
     private Transform tempPoint;
 
@@ -39,26 +32,20 @@ public class ObstacleMovement : MonoBehaviour
             //and we're going forward...
             if (goingForward)
             {
-                //the obstacle should move until its center is within a certain distance from the targets center
-                direction = currentTarget.GetComponent<Renderer>().bounds.center - transform.position;
-                transform.Translate(direction.normalized * obstacleSpeed * Time.deltaTime);
-                currentTarget = endPoint;
-                if (Vector3.Distance(transform.position, endPoint.GetComponent<Renderer>().bounds.center) <= 0.1f)
+                float step = obstacleSpeed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, endPoint.position, step);
+                if(transform.position == endPoint.position)
                 {
                     goingForward = false;
-                    currentTarget = startPoint;
                 }
             }
             else
             {
-                //Same as up top, just in the opposite direction
-                direction = currentTarget.GetComponent<Renderer>().bounds.center - transform.position;
-                transform.Translate(direction.normalized * obstacleSpeed * Time.deltaTime);
-                currentTarget = startPoint;
-                if (Vector3.Distance(transform.position, startPoint.GetComponent<Renderer>().bounds.center) <= 0.1f)
+                float step = obstacleSpeed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, startPoint.position, step);
+                if (transform.position == startPoint.position)
                 {
                     goingForward = true;
-                    currentTarget = endPoint;
                 }
             }
         }
