@@ -25,33 +25,26 @@ public class ImClickable : Editor
         Event currentEvent = Event.current;
         if (currentEvent.type == EventType.KeyDown)
         {
-            if (currentEvent.isKey && currentEvent.keyCode == KeyCode.Space)
+            if (currentEvent.isKey && currentEvent.keyCode == KeyCode.Alpha1)
             {
-                if (changingValues == 1)
-                {
-                    //highlight the rotation, so user knows rotation is being changed
-                    Highlighter.Highlight("Inspector", "Local Rotation");
-                    Event.current.Use();
-                }
-                if (changingValues == 2)
-                {
-                    //highlight the position, so user knows position is being changed
-                    Highlighter.Highlight("Inspector", "Local Position");
-                    Event.current.Use();
-                }
-                if (changingValues == 3)
-                {
-                    //highlight the scale, so user knows scale is being changed
-                    Highlighter.Highlight("Inspector", "Local Scale");
-                    Event.current.Use();
-                }
+                changingValues = 2;
+                //light the rotation, so user knows rotation is being changed
+                Highlighter.Highlight("Inspector", "Local Rotation");
+                Event.current.Use();
+            }
+            if (currentEvent.isKey && currentEvent.keyCode == KeyCode.Alpha2)
+            {
+                changingValues = 3;
+                //highlight the position, so user knows position is being changed
+                Highlighter.Highlight("Inspector", "Local Position");
+                Event.current.Use();
+            }
 
-                //if it reaches 3, cycle back to 1 for rotation
-                if (changingValues == 3)
-                    changingValues = 1;
-                else
-                    changingValues++;
-
+            if (currentEvent.isKey && currentEvent.keyCode == KeyCode.Alpha3)
+            {
+                changingValues = 1;
+                //highlight the scale, so user knows scale is being changed
+                Highlighter.Highlight("Inspector", "Local Scale");
                 Event.current.Use();
             }
 
