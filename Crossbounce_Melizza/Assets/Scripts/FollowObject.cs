@@ -5,18 +5,13 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class FollowObject : MonoBehaviour
 {
-    public GameObject myObject;
-    Vector3 currentPosition;
-    Vector3 lastPosition;
 
     private void Update()
     {
-        currentPosition = transform.position;
-        if(currentPosition != lastPosition)
+        Transform parent = GetComponentInParent<Transform>();
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            myObject.transform.position += (0.5f *(currentPosition - lastPosition));
+            parent.position = parent.position + Vector3.right;
         }
-        lastPosition = currentPosition;
     }
-
 }

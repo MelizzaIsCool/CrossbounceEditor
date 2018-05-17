@@ -27,7 +27,7 @@ public class ObstacleSerialization : Editor
     {
         m_object = new SerializedObject(target);
         m_staticObject = m_object.FindProperty("movingObstacle");
-        m_forwardMovement = m_object.FindProperty("goingForward");
+        m_forwardMovement = m_object.FindProperty("moveToEndFirst");
         m_target = m_object.FindProperty("currentTarget");
         m_startPoint = m_object.FindProperty("startPoint");
         m_endPoint = m_object.FindProperty("endPoint");
@@ -36,8 +36,8 @@ public class ObstacleSerialization : Editor
 
     public override void OnInspectorGUI()
     {
-        m_staticObject.boolValue = EditorGUILayout.Toggle(new GUIContent("Moving Object"), m_staticObject.boolValue);
-        m_forwardMovement.boolValue = EditorGUILayout.Toggle(new GUIContent("Going Forward"), m_forwardMovement.boolValue);
+        m_staticObject.boolValue = EditorGUILayout.Toggle(new GUIContent("Moving Object", "If the obstacle uses its track system"), m_staticObject.boolValue);
+        m_forwardMovement.boolValue = EditorGUILayout.Toggle(new GUIContent("Move To End First", " The object goes to the endpoint first on play"), m_forwardMovement.boolValue);
         EditorGUILayout.PropertyField(m_target);
         EditorGUILayout.PropertyField(m_startPoint);
         EditorGUILayout.PropertyField(m_endPoint);

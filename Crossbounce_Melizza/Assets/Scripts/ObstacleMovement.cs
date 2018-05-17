@@ -5,12 +5,12 @@ using UnityEngine;
 public class ObstacleMovement : MonoBehaviour
 {
     public bool movingObstacle = true;
-    public bool goingForward = true;
+    [Tooltip("Move to the end point on play")]
+    public bool moveToEndFirst = true;
     public Transform currentTarget;
     public Transform startPoint;
     public Transform endPoint;
     public float obstacleSpeed = 5f;
-
     private Vector3 direction;
     private Transform tempPoint;
 
@@ -30,22 +30,23 @@ public class ObstacleMovement : MonoBehaviour
         if (movingObstacle)
         {
             //and we're going forward...
-            if (goingForward)
+            if (moveToEndFirst)
             {
                 float step = obstacleSpeed * Time.deltaTime;
                 transform.position = Vector3.MoveTowards(transform.position, endPoint.position, step);
                 if(transform.position == endPoint.position)
                 {
-                    goingForward = false;
+                    moveToEndFirst = false;
                 }
             }
+            //else if we're going backwards
             else
             {
                 float step = obstacleSpeed * Time.deltaTime;
                 transform.position = Vector3.MoveTowards(transform.position, startPoint.position, step);
                 if (transform.position == startPoint.position)
                 {
-                    goingForward = true;
+                    moveToEndFirst = true;
                 }
             }
         }

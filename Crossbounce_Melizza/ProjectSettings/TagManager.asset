@@ -7,6 +7,8 @@ TagManager:
   - Bullet
   - Target
   - ObstacleSystem
+  - Track
+  - TrackEnd
   layers:
   - Default
   - TransparentFX

@@ -65,6 +65,12 @@ public class ImClickable : Editor
                 {
                     //move positive in the x
                     t.localPosition += new Vector3(0.1f, 0, 0);
+
+                    if (Selection.activeGameObject.CompareTag("Track"))
+                    {
+                        Selection.activeGameObject.transform.parent.GetChild(0).transform.position += Vector3.right * 0.1f;
+                            
+                    }
                 }
                 Event.current.Use();
 
@@ -87,6 +93,10 @@ public class ImClickable : Editor
                 {
                     //move negative in the x
                     t.localPosition += new Vector3(-0.1f, 0, 0);
+                    if (Selection.activeGameObject.CompareTag("Track"))
+                    {
+                        Selection.activeGameObject.transform.parent.GetChild(0).transform.position += Vector3.left * 0.1f;
+                    }
                 }
                 Event.current.Use();
             }
@@ -103,6 +113,10 @@ public class ImClickable : Editor
                 {
                     //move positive in the y
                     t.localPosition += new Vector3(0, 0.1f, 0);
+                    if (Selection.activeGameObject.CompareTag("Track"))
+                    {
+                        Selection.activeGameObject.transform.parent.GetChild(0).transform.position += Vector3.up * 0.1f;
+                    }
                 }
                 Event.current.Use();
             }
@@ -119,6 +133,10 @@ public class ImClickable : Editor
                 {
                     //move negative in the y
                     t.localPosition += new Vector3(0, -0.1f, 0);
+                    if (Selection.activeGameObject.CompareTag("Track"))
+                    {
+                        Selection.activeGameObject.transform.parent.GetChild(0).transform.position += Vector3.down * 0.1f;
+                    }
                 }
                 Event.current.Use();
             }
