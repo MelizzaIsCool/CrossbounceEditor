@@ -58,7 +58,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4190347201571552}
-  - component: {fileID: 114429620166586368}
   m_Layer: 0
   m_Name: Track
   m_TagString: Track
@@ -331,17 +330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   directions: 0
---- !u!114 &114429620166586368
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1387992215029992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cce9322b93930a469977c584be9c5a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114767748371116416
 MonoBehaviour:
   m_ObjectHideFlags: 1
